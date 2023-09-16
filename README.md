@@ -1,5 +1,4 @@
-# O'Reilly Architectural Katas 2023
-
+# O'Reilly Architectural Katas 2023**
 
 **Contents**
 - [Who we are](#who-we-are)
@@ -24,12 +23,12 @@
   - [Batch Jobs](#batch-jobs)
 - [Strategy](#strategy)
 - [Architectural Decision Records](#architectural-decision-records)
-  - [ADR 1: Backend for frontend](#adr-1-backend-for-frontend)
-  - [ADR 2: Microservices Architecture](#adr-2-microservices-architecture)
-  - [ADR 3: Event Driven Architecture (EDA)](#adr-3-event-driven-architecture-eda)
-  - [ADR 4: Usage of Config Database](#adr-4-usage-of-config-database)
-  - [ADR 5: Caching Technology in DBMS](#adr-5-caching-technology-in-dbms)
-  - [ADR 6: Batch Processing for non time sensitive process and Heavy compute tasks](#adr-6-batch-processing-for-non-time-sensitive-process-and-heavy-compute-tasks)
+  - [ADR 01: Backend for Frontend](#adr-01-backend-for-frontend)
+  - [ADR 02: Synchronous Microservices](#adr-02-synchronous-microservices)
+  - [ADR 03: Event-Driven Microservices](#adr-03-event-driven-microservices)
+  - [ADR 04: Configuration Database](#adr-04-configuration-database)
+  - [ADR 05: Caching to Improve Responsiveness](#adr-05-caching-to-improve-responsiveness)
+  - [ADR 06: Batch Processing](#adr-06-batch-processing)
 
 ## Who we are
 
