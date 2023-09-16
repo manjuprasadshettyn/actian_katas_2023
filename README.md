@@ -106,6 +106,9 @@ We will be using the following legend in the below explanations unless specifica
 
 ### User-Related Microservices
 
+![User drawio (1)](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/802fd1bc-0d44-47ba-b519-4711c6b20d43)
+
+
 + User Profile Data will hold all details about the user like name, email, mobile number etc.
 + User Interface Profile will hold specifics about the interface (web/Mobile App) which will help later personalise content.
 + Email Profile will be optional execution depending on permissions from the user to poll inbox.
@@ -125,6 +128,9 @@ We will be using the following legend in the below explanations unless specifica
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ### Trip-Related Microservices
+
+![Trips drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/9c1c3360-1438-4de6-a330-51b35255635a)
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/157fbc8b-4dc7-489c-baca-0b93680e04c9)
