@@ -1,4 +1,4 @@
-# O'Reilly Architectural Katas 2023**
+# O'Reilly Architectural Katas 2023
 
 **Contents**
 - [Who we are](#who-we-are)
