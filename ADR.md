@@ -26,6 +26,7 @@ Negative:
 
 
 
+
 # ADR 2: Microservices Architecture
 
 ## Status  
