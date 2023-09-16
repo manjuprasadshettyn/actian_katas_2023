@@ -1,5 +1,3 @@
-[Back](/README.md)
-
 # ADR 1: Backend for frontend
 
 ## Status  
@@ -104,8 +102,11 @@ Proposed
 
 ## Context 
 Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
+
 This will help bring flexibility in management without any alternations to service.
+
 As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
+
 Configurational attribute being in Config database will simplify these controls and process
 
 ## Decision   
