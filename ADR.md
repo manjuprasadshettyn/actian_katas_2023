@@ -32,8 +32,14 @@ Proposed
 
 ## Context 
 Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services.
+
+
 With various services being used in the applications this design approach help easily scale the required services.
+
+
 Since the application can be broken down into individual automic units building services over a microservice architecture will ease a lot of challenges for Road Warrior.
+
+
 As Road warrior has very minimal tollrence to faults and downtimes
 
 ## Decision   
@@ -58,8 +64,14 @@ Proposed
 
 ## Context 
 Event-Driven Architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
+
+
 Road Warrior has various use cases which are event driven in nature. These event driven actions can we well managed with the state machine for eventual inconsistency.
+
+
 This deseign pattern can help take decnetralized and autonomic decisions. 
+
+
 Async capabilities with EDA is going to very useful for faster processing and updates.
 
 ## Decision   
@@ -83,8 +95,14 @@ Proposed
 
 ## Context 
 Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
+
+
 This will help bring flexibility in management without any alternations to service.
+
+
 As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
+
+
 Configurational attribute being in Config database will simplify these controls and process
 
 ## Decision   
@@ -107,9 +125,12 @@ Proposed
 ## Context 
 Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
 
+
 This will help bring flexibility in management without any alternations to service.
 
+
 As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
+
 
 Configurational attribute being in Config database will simplify these controls and process
 
@@ -133,7 +154,11 @@ Proposed
 
 ## Context 
 Use of caching technology in DBMS is another factor that we are considering for design.
+
+
 This component is considered as the performnace of the application has to be optimal with over 2M active users.
+
+
 Caching can help improve the response rate and avoid significant load on Database keeping its resources utlizations in control
 
 ## Decision   
@@ -156,6 +181,8 @@ Proposed
 
 ## Context 
 For the heavy compute analytics tasks or non time senstives updates on the system batch jobs are an ideal choice. It can run in isolation to the regular transactions.
+
+
 It can also be completely decoupled from the transactions systems and bring in the relevant data whenever required.
 
 ## Decision   
