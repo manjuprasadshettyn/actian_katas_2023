@@ -151,6 +151,8 @@ We will be using the following legend in the below explanations unless specifica
 
 ### Reservation-Related Microservices
 
+![Reservations drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/d65442ce-5973-4f1b-a32a-8f05943fe461)
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/ea91cd1c-ae03-42cf-b941-ef5b72cec64e)
@@ -166,6 +168,8 @@ We will be using the following legend in the below explanations unless specifica
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Share Trip-Related Microservices
+
+![Shared Trip drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/2018f98f-c22d-488f-aeec-f4c55ef075bf)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -183,6 +187,9 @@ We will be using the following legend in the below explanations unless specifica
 
 ### Email Related Microservices
 
+![Email drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/267ed0de-2832-4dc3-84cb-d2da0ab0eb7e)
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/bf3b1f82-9419-4a4e-becd-37cbf85cb0b0)
@@ -194,6 +201,8 @@ We will be using the following legend in the below explanations unless specifica
 
 ### Agency-Related Microservices
 
+![Travel_agency drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/b04d102e-c1e6-4c8b-bd24-8056e7f4bc58)
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/89dc1c86-18a9-4444-9f9b-f4b376b66287)
@@ -201,6 +210,8 @@ We will be using the following legend in the below explanations unless specifica
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Communication-Related Microservices
+
+![Communication drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/7e173420-69c0-494a-9ff0-7f9d895ccfaa)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -213,6 +224,8 @@ We will be using the following legend in the below explanations unless specifica
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Analytics-Related Microservices
+
+![Analytics drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/4fe33065-53e6-4297-b937-5a40cefe6ca3)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
