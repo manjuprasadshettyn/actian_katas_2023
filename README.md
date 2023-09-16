@@ -299,18 +299,17 @@ Below flow diagrams explain the working of each microservice.
 
 ## Architectural Decision Records
 
-### ADR 1: Backend for frontend
+### ADR 01: Backend for Frontend
 
 **Status**
 Proposed
 
 **Context**
-The Backend for Frontend (BFF) pattern is a design approach that involves creating a separate backend specifically tailored to the needs of a front-end application.
-It is needed to address some of the challenges and complexities that arise in modern web and mobile application development.
-Backend for Frontend pattern helps to address the complexities and specific requirements of frontend applications, providing a dedicated backend layer that enhances performance, security, and developer productivity.
+Our Product has to serve all of the content to the client over services and considering that we have to cater to different types of clients (web and Mobile App), there is a need for a layer which can effectively deliver content to the client taking advantage of the client specific features and at same time working around the limitations of the client.
+Also when integrating multiple services on the client it is always a good practice to isolate the core domain-specific functionality from generic tasks like authorization, routing, security etc.
 
 **Decision**   
-We will use BFF for the incoming requests from App and Web interfaces in Road Warrior
+We will use the Backend For Framework pattern for the incoming requests from App and Web interfaces in Road Warrior
 
 **Consequences**  
 Positive:
@@ -321,7 +320,7 @@ Positive:
 Negative:  
 + Can be an additional hop with nominal addition in latency
 
-### ADR 2: Microservices Architecture
+### ADR 02: Synchronous Microservices
 
 **Status**
 Proposed
@@ -348,7 +347,7 @@ Negative:
 
 
 
-### ADR 3: Event-Driven Architecture (EDA)
+### ADR 03: Event-Driven Microservices
 
 **Status**
 Proposed
@@ -380,7 +379,7 @@ Negative:
 
 
 
-### ADR 4: Usage of Config Database
+### ADR 04: Configuration Database
 
 **Status**
 Proposed
@@ -408,7 +407,7 @@ Positive:
 Negative:  
 + Hit on performance as few services will have additional checks with config database
 
-### ADR 5: Caching Technology in DBMS
+### ADR 05: Caching to Improve Responsiveness
 
 **Status**
 Proposed
@@ -435,15 +434,13 @@ Negative:
 + Careful tuning of caching would be required for optimal utilization
 
 
-### ADR 6: Batch Processing for non-time-sensitive process and Heavy computing tasks
+### ADR 06: Batch Processing
 
 **Status**
 Proposed
 
 **Context**
 For heavy compute analytics tasks or non-time sensitive updates on the system batch jobs are an ideal choice. It can run in isolation from the regular transactions.
-
-
 It can also be completely decoupled from the transaction systems and bring in the relevant data whenever required.
 
 **Decision**   
