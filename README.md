@@ -2,73 +2,66 @@
 
 ## Who we are
 
-We are a bunch of enthusiatic developers, designers and product leads with goal to make technology valuable and sustainable. We work at Atria Convergence Technologies Limited in India and Our team consists of Akash Kumar R, Manjuprasad Nidlady, Madhusudhan K, Veni Kota and Koushik Ithal.
+We are a bunch of enthusiastic developers, designers and product leads with the goal to make technology valuable and sustainable. We work at Atria Convergence Technologies Limited in India and Our team consists of Akash Kumar R, Manjuprasad Nidlady, Madhusudhan K, Veni Kota and Koushik Ithal.
 
 ## Problem Analysis
 
 ### Business Case
-Road Warrior brain child of a start up which is  a web and mobile app that allows travelers to see all of their existing reservations organized by trip, either online or through their mobile device. Road Warrior automatically polls your email looking for travel-related emails, and filters and whitelists certain emails to avoid spam and duplicates. Road Warrior also interfaces with the agency’s existing airline, hotel, and car rental interface system to update travel details such as delays, cancellations, updates, gate changes, etc. You can also add, update, or delete existing reservations manually as well.
-Road Warrior lets you group your items by trip, and once the trip is complete, the items are automatically removed from the dashboard. You can also share your trip information by interfacing with standard social media sites or allowing targeted people to view your trip. Road Warrior has the richest user interface possible across all deployment platforms, and provides end-of-year summary reports for users with a wide range of metrics about their travel usage.
-Road Warrior also gathers analytical data from users trips for various purposes, such as travel trends, locations, airline and hotel vendor preferences, cancellation and update frequency, and so on. Road Warrior integrates seamlessly with existing travel systems such as SABRE and APOLLO, and with your preferred travel agency for quick problem resolution.
-Road Warrior works internationally, and supports multiple languages and currencies. Road Warrior is the ultimate solution for travelers who want to simplify their travel management and enjoy their trips without hassle.
+Road Warrior is a Startup that wants to revolutionize the travel industry by allowing users to organize, track and seamlessly work across travel partners for a trip. The Product description is as follows:  
++ Building web and mobile app interface that allows travellers to add, update, or delete existing reservations manually as well as see all of their existing reservations organized by trip.
++ Let users forward an email to us or Poll user inbox looking for travel-related emails. 
++ Interfaces with the agency’s existing airline, hotel, and car rental interface system to receive travel update details such as delays, cancellations, updates, gate changes, etc. and preferred travel partner for Support. 
++ Users can also share trip information by interfacing with standard social media sites or allowing targeted people to view your trip. 
++ Provides end-of-year summary reports for users with a wide range of metrics about their travel usage.
++ Gathers analytical data from trips for various purposes, such as travel trends, locations, airline and hotel vendor preferences, cancellation and update frequency, and so on.
++ Works internationally, and supports multiple languages and currencies. 
 
-### Domain Understanding
+### Domain Analysis
 
-•	When planning a trip, travelers increasingly rely on their mobile devices. According to Travelport Digital, 80% of travelers used a mobile app to research trips in 2018 statista.com. Mobile usage has become an essential part of travel planning, with many consumers looking for travel information on a daily basis thinkwithgoogle.com.
-•	Travel and tourism is a significant driver of economic growth and employment in the United States, accounting for nearly 3% of the U.S. GDP commerce.gov. The industry supported 9.9 million American jobs that paid more than $322 billion in employee compensation.
-•	As travelers become more mobile, the demand for easy-to-use and fast websites and mobile apps has increased thinkwithgoogle.com. Travelers expect a fast, frictionless, and helpful experience when researching and booking their trips, with 53% of mobile visits being abandoned if a site takes longer than three seconds to load thinkwithgoogle.com.
-•	Organizing trip can be both thrilling and challenging. Finding amazing destinations and attractions to visit is an exciting activity, but managing all the related information for your journey can be quite demanding.
-•	There are various travel planning apps available that cater to different needs, such as Culture Trip for finding off-the-beaten-path destinations . These apps help travelers streamline their trip planning process and ensure a smooth and enjoyable experience.
++ When planning a trip, travellers increasingly rely on their mobile devices. According to Travelport Digital, 80% of travellers used a mobile app to research trips in 2018 statista.com. Mobile usage has become an essential part of travel planning, with many consumers looking for travel information daily thinkwithgoogle.com.
++ Travel and tourism is a significant driver of economic growth and employment in the United States, accounting for nearly 3% of the U.S. GDP commerce.gov. The industry supported 9.9 million American jobs that paid more than $322 billion in employee compensation.
++ As travellers become more mobile, the demand for easy-to-use and fast websites and mobile apps has increased (thinkwithgoole.com). Travellers expect a fast, frictionless, and helpful experience when researching and booking their trips, with 53% of mobile visits being abandoned if a site takes longer than three seconds to load thinkwithgoogle.com.
++ Organizing a trip can be both thrilling and challenging. Finding amazing destinations and attractions to visit is an exciting activity, but managing all the related information for your journey can be quite demanding.
++ There are various travel planning apps available that cater to different needs, such as Culture Trip for finding off-the-beaten-path destinations. These apps help travellers streamline their trip planning process and ensure a smooth and enjoyable experience.
 
-### Functional Requirements
-•	Scalable design to support 2 million active users with 15 Min registered. 
-•	Provide best in class user experience both on web and Mobile. 
-•	Solution must support easy integration with new partners to get required data for the trip updates.
-•	Gather analytical data form all possible avenue’s, to support various reporting requirements. 
-•	Provide User with summary based in multiple metrics like (trip , location , travel agency , mode of transport)
-•	Support for sharing trip info over social media.
-•	Support for multiple languages and time zones to be able to support international usage.
+### Explicit Non-Functional Requirements
++ Scalable design to support 2 million active users with 15 million registered users. 
++ Provide best-in-class user experience both on the web and Mobile. 
++ The solution must support easy integration with new partners to get the required data for the trip updates.
++ Users must be able to access the system at all times (max 5 minutes per month of unplanned downtime)
++ Travel updates must be presented in the app within 5 minutes of generation by the source
++ Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec) 
 
-### Non-Functional Requirements
-•	Users must be able to access the system at all times (max 5 minutes per month of unplanned downtime)
-•	Travel updates must be presented in the app within 5 minutes of generation by the source
-•	Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec) 
+### Implicit Non-Functional Requirements
++ Security of the Product to be top-notch since user personal data will be stored.
++ Compliance with local laws for smooth international operations.
 
 ### Assumptions
 + System will not perform any direct actions on reservation, platform only allows you to track reservations done in one place.
 + Availability of API interface from existing travel agencies and partners
 + A couple of Functionalities will be primarily driven by client side (web browser/mobile app)
-  1. Redirection to preferred partner for Support based on details from backend.
-  2. Sharing trip on social media to be managed by direct integrations on client side
+  1. Redirection to preferred partner for Support based on details from the backend.
+  2. Sharing trips on social media by direct integrations on the client side
 
 
 ## Architectural Analysis
+Based on our understanding of the problem and analysis of the domain and technical characteristics of the solution, below are the driving factors that will impact our Architecture design.
 
-Basis above understanding of problem and our analysis of domain and technical characteristics of the solution, below are the driving factors that will impact our Architecture design.
+1. **Performance**: We need to have high performance in our system to meet the expectations of our users who want to see their travel plans updated and notified about changes in near real-time along with highly responsive user interfaces. 
 
-Agility: We needs to be agile to respond to the changing needs and preferences of our target market, which is travelers who want to manage their travel plans online or through their mobile device. we should use agile methodologies and practices, such as Scrum, Kanban, or DevOps, to deliver value to our customers faster and more frequently. We should also use feedback loops and user testing to validate our assumptions and improve our product.
+2. **Fault-tolerance**: Considering the travel industry an how important it is for users to not miss any updates about their trips and reservations. The system must be fault-tolerant with as minimal downtime as possible.
 
-Abstraction: We need to use abstraction to hide the complexity and implementation details of our system from our users and developers. We should use high-level languages and frameworks that allow us to focus on the business logic and user interface of our system, rather than the low-level details of how it works. We should also use design patterns and principles, such as MVC, SOLID, or DRY, to organize our code and make it more readable and maintainable.
+3. **Scalability**: Given the volume of active users and other users in the database who can turn active at any point of time, its important for system to be able to gradually auto-scale up and scale down depending on the volume of transactions. 
 
-Cost: We need to consider the cost of developing as it’s a startup, maintaining, and operating as it affects profitability and sustainability. We should use microservices, containers and also use open source tools and libraries that reduce the licensing and development costs of our system
+4. **Cost**: Since it's a startup we need to consider the cost of product development, maintenance, and operation as it affects the profitability and sustainability of the business.
 
-Deployability: We need to ensure the deployability of our system on different platforms and environments, as it affects our reach and availability. We should use cross-platform technologies and frameworks that allow us to build our system once and deploy it anywhere
+5. **Security**: Considering the international operations, complaints to local laws and storage of user Personal data, the security of the product is an implicit and important characteristic. 
 
-Elasticity: We need to have elasticity in our system to cope with the fluctuations in demand or workload from our users. We should use microservices architectures that allow we to scale up or down our system dynamically based on the traffic or load conditions, such as auto-scaling groups, load balancers, or distributed databases. We should also use monitoring and alerting tools that measure and notify we of the performance and health of our system
+6. **Agility**: The Product needs to be agile to respond to the changing needs and preferences of the target market. Considering international operations and few industries related to travel are highly regulated by the government, being agile will offer a competitive advantage in the market.
 
-Evolvability: We need to ensure the evolvability of our system over time by adding new features, functionalities, or components without affecting the existing ones. We should use modular and loosely coupled design principles that enable easy integration of new components and services into our system, such as new microservices, integration with new partners. 
+7. **Interoperability**: The Product has to be able to interface and integrate with various existing aggregators and partners making this a very important characteristic. 
 
-Fault-tolerance: We need to have fault-tolerance in our system to continue functioning correctly in the presence of errors, failures to maintain uptimes committed to customers We should also use backup and recovery strategies and tools that restore or recover the data or state of our system in case of failures, such as snapshots, replication, or backup services.
-
-Integration: We need to integrate our system with other systems or components that provide essential functionalities or services for our product, such as the agency’s existing airline, hotel, and car rental interface system, or standard social media sites. We should use standard protocols and interfaces that enable interoperability and communication with external systems or components.
-
-Performance: We need to have high performance in our system to meet the expectations of our users who want to see their travel plans updated in real-time and share them with others. We should use asynchronous and event-driven programming models that enable concurrent and parallel processing of tasks, such as promises, and callbacks, We should also use caching and content delivery networks that improve the user experience and reduce the load on the backend servers.
-
-Scalability: We need to have scalability in our system to handle increasing or decreasing amounts of data, users, or transactions without degrading its performance or functionality. We should use microservices and event-driven architectures that allow for horizontal scaling.
-
-Workflow: We need a well-defined workflow that describes the sequence of steps or tasks that define how our system operates. We should use business process modelling techniques and tools that capture the workflow of our system in a graphical or textual form.
-
-The figure shows how our top 4 architecture characteristics score against formal system architecture styles.
+The below figure shows how our top 4 architectural characteristics score against formal system architecture styles.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/36072f6c-d8a9-4f88-ae34-88691711a631)
 
@@ -82,9 +75,9 @@ The figure shows how our top 4 architecture characteristics score against formal
 
 The Below Figure illustrates our High-Level System Architecture.
 
-![img_final drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/3f885386-d5a8-4dea-9805-99a0f036172c)
+![Architecture_final drawio(1)](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/732b0e7e-3a59-4de1-9728-907fcd7602b8)
 
-**Architecture Strategy**
+**Architecture Style**
 1. Different Components in the architecture are grouped together logically to represent the concept of *Zoning (Separation of Concern)* i.e., creating separate zones to host databases, microservices that interact with users, Event Queues, microservices that interact with Queues, and External Integrations.
 2. The Idea of Zoning will help isolate and protect internal components and data ensuring security by design.
 3. *Client-facing microservices* will work in a Synchronous fashion catering to all requests from clients (Mobile App, Web) with inbuilt Authentication.
@@ -96,23 +89,32 @@ The Below Figure illustrates our High-Level System Architecture.
 9. *Backend for Frontend Gateway* used to leverage unique features of the user interface.
 10. Deployment of Microservices using *Kubernetes* to achieve scalability and fault-tolerance. 
 
-## Detailed Architecture
+## Detailed Design
 
 This Section will focus on elaborating each block in the high-level architecture giving a good understanding of the components and how each component interacts with each other.
 
+### State Machine
+
+Trips and Reservations will follow the below state machine, where they will be in *Active* Status on Creation and Move to *Completed* Status on Completion based on events and everyday batch processing of reservations/trips ending that day. Upon User deletion, the status will change to *Deleted*.
+This will help us ensure that we don't lose out on data and build rich analytics in the long run.
+
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/a5bba11b-c39f-464c-815f-f489a7a5365b)
+
+
 We will be using the following legend in the below explanations unless specifically mentioned.
 
-![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/c7a01629-8d56-434e-aaaa-274e08bcc1e2)
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/f2cc50e6-c48d-480e-967f-7b84045f9716)
+
 
 ### User-Related Microservices
 
 ![User drawio (1)](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/802fd1bc-0d44-47ba-b519-4711c6b20d43)
 
-
 + User Profile Data will hold all details about the user like name, email, mobile number etc.
 + User Interface Profile will hold specifics about the interface (web/Mobile App) which will help later personalise content.
 + Email Profile will be optional execution depending on permissions from the user to poll inbox.
 + Locale Profile will hold details about timezone, language preference and other compliances (GDPR) etc. to support international operations.
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/dec5f174-6dac-4097-8e43-079d479bb93d)
@@ -126,11 +128,16 @@ We will be using the following legend in the below explanations unless specifica
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/7996a4f9-120a-4cff-9c02-148d73498c82)
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Trip-Related Microservices
 
 ![Trips drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/9c1c3360-1438-4de6-a330-51b35255635a)
 
++ Trip Data will hold all the attributes related to Trip and optionally the preferred partner for Support if mentioned.
++ Reservations Data will hold all the attributes related to a Reservation.
++ Recommendations Data will hold all personalised recommendations (based on Trip and based on User Interface)
++ Services will also generate appropriate events to track trips for personalised recommendations.
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/157fbc8b-4dc7-489c-baca-0b93680e04c9)
@@ -147,11 +154,13 @@ We will be using the following legend in the below explanations unless specifica
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/0f09b81f-7055-4cc1-870c-e8c5b9e47d5f)
 
----------------------------------------------------------------------------------------------------------------------------------------------
-
 ### Reservation-Related Microservices
 
 ![Reservations drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/d65442ce-5973-4f1b-a32a-8f05943fe461)
+
++ Reservations Data will hold all the attributes related to a Reservation.
++ Services will also generate appropriate events to track reservations for updates (cancellations/delays etc.).
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -163,14 +172,17 @@ We will be using the following legend in the below explanations unless specifica
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/2f661bf0-1b14-47e2-99fa-90c0e842f54d)
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/86c0adfd-98ba-4d95-84ff-cd091ee437a3)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Share Trip-Related Microservices
 
 ![Shared Trip drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/2018f98f-c22d-488f-aeec-f4c55ef075bf)
 
++ We will be generating a unique link to be shared across other platforms.
++ When Opened these links will bypass Authentication, allowing users to easily access it on social media and email.
++ We will also allow users to track the shared trip links and delete them if required.
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/b4fe7421-d70e-49d0-896b-ce7650dfc6ec)
@@ -183,25 +195,35 @@ We will be using the following legend in the below explanations unless specifica
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/b6c0e906-84ae-469c-805b-d576e32c518b)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Email Related Microservices
 
-![Email drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/267ed0de-2832-4dc3-84cb-d2da0ab0eb7e)
+![Katas_2023-Email drawio(1)](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/2d8cf02b-3ef2-4e33-93a8-f6183ea4d2ad)
 
++ Poll Road Warrior Inbox Services will poll the inbox basis filters and credentials stored in the configuration database.
++ Poll User Inbox service will poll the user inbox-based events and accordingly update the reservations if required.
++ If there is any update on the status of the reservation, create appropriate events to notify the user.
++ Emails Data will be a NoSQL DB to store the contents of the email polled.
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/bf3b1f82-9419-4a4e-becd-37cbf85cb0b0)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/d7d2a1a5-2dd6-421d-bb9a-32930edbdc35)
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/874bafb0-2bb3-41ed-a280-1aded0179ae6)
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Agency-Related Microservices
 
 ![Travel_agency drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/b04d102e-c1e6-4c8b-bd24-8056e7f4bc58)
+
++ Poll Travel Agency Interfaces basis events on the Queue
++ Updates Reservations Data if required and if there is any update on the status of the reservation, create appropriate events to notify the user.
++ Mark Reservations as Completed if they are no longer required to be tracked
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -213,6 +235,11 @@ We will be using the following legend in the below explanations unless specifica
 
 ![Communication drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/7e173420-69c0-494a-9ff0-7f9d895ccfaa)
 
++ On events which require users to be notified, get user interface profile data (to decide on app/web notification).
++ Create Communication events for specific channels and Send Communication to customers on those channels.
++ Configuration database will hold details on the relevant URLs, credentials and interfaces which need to be used for communication.
++ Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/741d1c69-6583-4447-b737-cd035d01b34b)
@@ -221,16 +248,44 @@ We will be using the following legend in the below explanations unless specifica
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/4b55a44d-d14b-46a8-a314-361e1716ffdf)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Analytics-Related Microservices
 
 ![Analytics drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/4fe33065-53e6-4297-b937-5a40cefe6ca3)
 
++ Analytics DB will hold all details about user actions, changes in reservation details, user preferences etc.
++ The service will poll the queue and add events along with attributes.
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/ad50d24f-cd5a-4816-be6f-bae815771e4a)
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/283dca5c-570c-4473-82ca-1834fcb71cd5)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Batch Jobs
+
+![Katas_2023-Batch drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/b6ffa0b5-37da-4945-9028-4d649f266c39)
+
++ Batch Jobs will perform scheduled and time-insensitive actions regularly like below:
+  1. Poll Road Warrior Inbox every 2 mins and filter Travel related emails
+  2. Execution of Recommendation Engine every few hours to generate personalized suggestions based on Analytics data
+  3. Execution of Recommendation Engine every few hours to generate personalized suggestions based on User Interface Profile
+  4. Execution of Travel Summary Engine to generate travel summaries every day and aggregate them for the year.
+  5. Trip/Reservation completion based on the end date and removal of appropriate events from queues to optimize performance
+  6. ETL Job to import and export data between RDBMS and Data warehouse
+     
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/a3f126ca-2248-419a-a467-fe128fc25e26)
+
+## Strategy
+
++ A phased approach is suggested for Polling User email inboxes, since it is a startup it is recommended to build brand trust first and then roll out this functionality.
++ Use of Distributed Deployment approach, having different setups serving similar countries/regions. Controlling deployments and the compliance of the local law (GDPR, India Personal Data Protection Act etc.) through Configuration Databse will help expand in a phased approach with minimal re-work.
++ Effective use of event queue to improve performance: Poll agency/email for updates on only Active Reservations. For Ex: If there are no active reservations polling of user inbox can be changed from every 2 mins to 10 mins.
+
+## Architectural Decision Records
+
+### ADR 01:
+### ADR 02:
+### ADR 03:
+### ADR 04:
+### ADR 05:
