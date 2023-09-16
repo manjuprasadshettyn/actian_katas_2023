@@ -25,6 +25,7 @@ Negative:
 + Can be and additional hop with nominal addition in latency
 
 
+
 # ADR 2: Microservices Architecture
 
 ## Status  
@@ -55,6 +56,7 @@ Postitive:
 Negative:  
 + It requires careful design, effective communication between services, and proper management of distributed systems
 + Code Duplicatation is a potential possibility
+
 
 
 # ADR 3: Event Driven Architecture (EDA)
@@ -88,34 +90,6 @@ Negative:
 + Complexities related to event ordering, event schema evolution, eventual consistency, and managing the event flow across multiple services
 
 
-# ADR 4: Usage of Config Database
-
-## Status  
-Proposed
-
-## Context 
-Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
-
-
-This will help bring flexibility in management without any alternations to service.
-
-
-As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
-
-
-Configurational attribute being in Config database will simplify these controls and process
-
-## Decision   
-We will use Config Database for Interface, Email configs , Internation compleience standards in Road Warrior
-
-## Consequences  
-Postitive:
-+ Easy management integration interfaces. Any modifications can be eaily achived
-+ Complience to intenational standards can be easily achived by modification of configurations alone
-
-Negative:  
-+ Hit on performance as few services will have additional with config database
-
 
 # ADR 4: Usage of Config Database
 
@@ -144,6 +118,37 @@ Postitive:
 
 Negative:  
 + Hit on performance as few services will have additional with config database
+
+
+
+# ADR 4: Usage of Config Database
+
+## Status  
+Proposed
+
+## Context 
+Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
+
+
+This will help bring flexibility in management without any alternations to service.
+
+
+As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
+
+
+Configurational attribute being in Config database will simplify these controls and process
+
+## Decision   
+We will use Config Database for Interface, Email configs , Internation compleience standards in Road Warrior
+
+## Consequences  
+Postitive:
++ Easy management integration interfaces. Any modifications can be eaily achived
++ Complience to intenational standards can be easily achived by modification of configurations alone
+
+Negative:  
++ Hit on performance as few services will have additional with config database
+
 
 
 
