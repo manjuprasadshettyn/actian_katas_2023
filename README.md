@@ -1,8 +1,39 @@
-# O'Reilly Architectural Katas 2023
+**O'Reilly Architectural Katas 2023**
+
+
+**Contents**
+- [Who we are](#who-we-are)
+- [Problem Analysis](#problem-analysis)
+  - [Business Case](#business-case)
+  - [Domain Analysis](#domain-analysis)
+  - [Explicit Non-Functional Requirements](#explicit-non-functional-requirements)
+  - [Implicit Non-Functional Requirements](#implicit-non-functional-requirements)
+  - [Assumptions](#assumptions)
+- [Architectural Analysis](#architectural-analysis)
+- [High-Level Architecture](#high-level-architecture)
+- [Detailed Design](#detailed-design)
+  - [State Machine](#state-machine)
+  - [User-Related Microservices](#user-related-microservices)
+  - [Trip-Related Microservices](#trip-related-microservices)
+  - [Reservation-Related Microservices](#reservation-related-microservices)
+  - [Share Trip-Related Microservices](#share-trip-related-microservices)
+  - [Email Related Microservices](#email-related-microservices)
+  - [Agency-Related Microservices](#agency-related-microservices)
+  - [Communication-Related Microservices](#communication-related-microservices)
+  - [Analytics-Related Microservices](#analytics-related-microservices)
+  - [Batch Jobs](#batch-jobs)
+- [Strategy](#strategy)
+- [Architectural Decision Records](#architectural-decision-records)
+  - [ADR 1: Backend for frontend](#adr-1-backend-for-frontend)
+  - [ADR 2: Microservices Architecture](#adr-2-microservices-architecture)
+  - [ADR 3: Event Driven Architecture (EDA)](#adr-3-event-driven-architecture-eda)
+  - [ADR 4: Usage of Config Database](#adr-4-usage-of-config-database)
+  - [ADR 5: Caching Technology in DBMS](#adr-5-caching-technology-in-dbms)
+  - [ADR 6: Batch Processing for non time sensitive process and Heavy compute tasks](#adr-6-batch-processing-for-non-time-sensitive-process-and-heavy-compute-tasks)
 
 ## Who we are
 
-We are a bunch of enthusiastic developers, designers and product leads with the goal to make technology valuable and sustainable. We work at Atria Convergence Technologies Limited in India and Our team consists of Akash Kumar R, Manjuprasad Nidlady, Madhusudhan K, Veni Kota and Koushik Ithal.
+We are a bunch of enthusiastic developers, designers and product leads with the goal to make technology valuable and sustainable. We work at Atria Convergence Technologies Limited in India and Our team consists of Akash Kumar R, Manjuprasad Shetty Nidlady, Madhusudhan K, Veni Kota and Koushik Ithal.
 
 ## Problem Analysis
 
