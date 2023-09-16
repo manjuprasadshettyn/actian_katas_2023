@@ -8,6 +8,8 @@ The Backend for Frontend (BFF) pattern is a design approach that involves creati
 
 
 It is needed to address some of the challenges and complexities that arise in modern web and mobile application development.
+
+
 Backend for Frontend pattern helps to address the complexities and specific requirements of frontend applications, providing a dedicated backend layer that enhances performance, security, and developer productivity.
 
 ## Decision   
