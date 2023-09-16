@@ -35,7 +35,9 @@ Road Warrior works internationally, and supports multiple languages and currenci
 •	Response time from web (800ms) and mobile (First-contentful paint of under 1.4 sec) 
 
 ### Assumptions
-•	System will not perform any direct actions on reservation , platform only allows you to track all your reservations done in one place.
+•	System will not perform any direct actions on reservation, platform only allows you to track reservations done in one place.
+Availability of API interface from existing travel agency and partners
+
 
 ## Architectural Analysis
 
@@ -63,10 +65,32 @@ Scalability: We need to have scalability in our system to handle increasing or d
 
 Workflow: We need to have a well-defined workflow that describes the sequence of steps or tasks that define how our system operates. We should use business process modeling techniques and tools that capture the workflow of our system in a graphical or textual form.
 
-Below Figure shows how our top 3 architecture characteristics score against formal system architecture styles.
+The figure shows how our top 3 architecture characteristics score against formal system architecture styles.
+
+Table Image
+
++ We chose to go ahead with **Microservices** and **Event-driven architecture** style
++ Although Microservices is low on performance, other characteristics like agility, domain part, fault tolerance and scalability will help small technical teams to quickly add, enhance and test product features while ensuring that system availability is very high.
++ The Shortcomings in performance will be overcome by coupling it with event queues adopting an event-driven micro service style.
 
 
+## High-Level Architecture
 
-+ We chose to go ahead with Microservices and event-driven architecture style
-+ Although Microservices is low on preformance, other charcteristisc of it like agility, domain part, fault tolerance and scalaibility will help small technical teams to quickly add,ehance and test product features while ensuring that system availability is very high.
-+ The Shortcoming on performance will be overcome by coupling it with event queues adopting a event-driven micro service style.
+The Below Figure illustrates our High-Level System Architecture.
+
+![img_final drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/3f885386-d5a8-4dea-9805-99a0f036172c)
+
+**Architecture Style**
+1. Different Components in the architecture are grouped together logically to represent the concept of *Zoning (Separation of Concern)* i.e., creating separate zones to host databases, microservices that interact with users, Event Queues, microservices that interact with Queues, and External Integrations.
+2. The Idea of Zoning will help isolate and protect internal components and data ensuring security by design.
+3. *Client-facing microservices* will work in a Synchronous fashion catering to all requests from clients (Mobile, Web) with inbuilt Authentication.
+4. Shared Trip-related microservices will be open to allow users to access them without Authentication.
+5. All of the internal processing i.e., polling email server, polling agency for updates, communication, capturing user analytics etc. will be driven by *event-driven microservices*.
+6. *Batch Jobs* will process time-insensitive and data-heavy scheduled tasks.
+7. Use of *Purpose-built Database stacks* for transactional, analytical, document storage and other purposes.
+8. Use of *Data Partitioning techniques* (City-wise partitions) ensures high-performance throughput.
+9. *Backend for Frontend Gateway* used to leverage unique features of the user interface.
+10. Deployment of Microservices using *Kubernetes* to achieve scalability and fault-tolerance. 
+
+## Detailed Design
+
