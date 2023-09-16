@@ -1,4 +1,4 @@
-# Architectural Katas 2023
+# O'Reilly Architectural Katas 2023
 
 ## Who we are
 
@@ -18,7 +18,7 @@ Road Warrior is a Startup that wants to revolutionize the travel industry by all
 
 ### Domain Analysis
 
-+ When planning a trip, travellers increasingly rely on their mobile devices. According to Travelport Digital, 80% of travellers used a mobile app to research trips in 2018 statista.com. Mobile usage has become an essential part of travel planning, with many consumers looking for travel information daily thinkwithgoogle.com.
++ When planning a trip, travellers increasingly rely on their mobile devices. According to Travelport Digital, 80% of travellers used a mobile app to research trips in 2018 (statista.com). Mobile usage has become an essential part of travel planning, with many consumers looking for travel information daily thinkwithgoogle.com.
 + Travel and tourism is a significant driver of economic growth and employment in the United States, accounting for nearly 3% of the U.S. GDP commerce.gov. The industry supported 9.9 million American jobs that paid more than $322 billion in employee compensation.
 + As travellers become more mobile, the demand for easy-to-use and fast websites and mobile apps has increased (thinkwithgoole.com). Travellers expect a fast, frictionless, and helpful experience when researching and booking their trips, with 53% of mobile visits being abandoned if a site takes longer than three seconds to load thinkwithgoogle.com.
 + Organizing a trip can be both thrilling and challenging. Finding amazing destinations and attractions to visit is an exciting activity, but managing all the related information for your journey can be quite demanding.
@@ -43,7 +43,6 @@ Road Warrior is a Startup that wants to revolutionize the travel industry by all
   1. Redirection to preferred partner for Support based on details from the backend.
   2. Sharing trips on social media by direct integrations on the client side
 
-
 ## Architectural Analysis
 Based on our understanding of the problem and analysis of the domain and technical characteristics of the solution, below are the driving factors that will impact our Architecture design.
 
@@ -55,7 +54,7 @@ Based on our understanding of the problem and analysis of the domain and technic
 
 4. **Cost**: Since it's a startup we need to consider the cost of product development, maintenance, and operation as it affects the profitability and sustainability of the business.
 
-5. **Security**: Considering the international operations, complaints to local laws and storage of user Personal data, the security of the product is an implicit and important characteristic. 
+5. **Security**: Considering the international operations, compliance with local laws and storage of user Personal data, the security of the product is an implicit and important characteristic. 
 
 6. **Agility**: The Product needs to be agile to respond to the changing needs and preferences of the target market. Considering international operations and few industries related to travel are highly regulated by the government, being agile will offer a competitive advantage in the market.
 
@@ -64,7 +63,6 @@ Based on our understanding of the problem and analysis of the domain and technic
 The below figure shows how our top 4 architectural characteristics score against formal system architecture styles.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/36072f6c-d8a9-4f88-ae34-88691711a631)
-
 
 + We chose to go ahead with **Microservices** and **Event-driven architecture** style
 + Although Microservices is low on performance, other characteristics like agility, domain part, fault tolerance and scalability will help small technical teams to quickly add, enhance and test product features while ensuring that system availability is very high.
@@ -78,7 +76,7 @@ The Below Figure illustrates our High-Level System Architecture.
 ![Architecture_final drawio(1)](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/732b0e7e-3a59-4de1-9728-907fcd7602b8)
 
 **Architecture Style**
-1. Different Components in the architecture are grouped together logically to represent the concept of *Zoning (Separation of Concern)* i.e., creating separate zones to host databases, microservices that interact with users, Event Queues, microservices that interact with Queues, and External Integrations.
+1. Different Components in the architecture are grouped logically to represent the concept of *Zoning (Separation of Concern)* i.e., creating separate zones to host databases, microservices that interact with users, Event Queues, microservices that interact with Queues, and External Integrations.
 2. The Idea of Zoning will help isolate and protect internal components and data ensuring security by design.
 3. *Client-facing microservices* will work in a Synchronous fashion catering to all requests from clients (Mobile App, Web) with inbuilt Authentication.
 4. Shared Trip-related microservices will be open to allow users to access them without Authentication.
@@ -105,7 +103,7 @@ We will be using the following legend in the below explanations unless specifica
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/f2cc50e6-c48d-480e-967f-7b84045f9716)
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------
 ### User-Related Microservices
 
 ![User drawio (1)](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/802fd1bc-0d44-47ba-b519-4711c6b20d43)
@@ -116,18 +114,17 @@ We will be using the following legend in the below explanations unless specifica
 + Locale Profile will hold details about timezone, language preference and other compliances (GDPR) etc. to support international operations.
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+Below flow diagrams explain the working of each microservice.
+
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/dec5f174-6dac-4097-8e43-079d479bb93d)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/60669337-9448-450e-8cb0-8b3c2062d95a)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/c55c26fc-a91c-465f-be62-1bab27eda8d1)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/7996a4f9-120a-4cff-9c02-148d73498c82)
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Trip-Related Microservices
 
@@ -139,20 +136,17 @@ We will be using the following legend in the below explanations unless specifica
 + Services will also generate appropriate events to track trips for personalised recommendations.
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
----------------------------------------------------------------------------------------------------------------------------------------------
-![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/157fbc8b-4dc7-489c-baca-0b93680e04c9)
+Below flow diagrams below explain the working of each microservice.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/157fbc8b-4dc7-489c-baca-0b93680e04c9)
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/1f6b4ef2-9487-4b26-8f5f-dec71fc6c980)
 
----------------------------------------------------------------------------------------------------------------------------------------------
-
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/0db400d6-54e5-483e-aa31-e020b4b83d07)
 
----------------------------------------------------------------------------------------------------------------------------------------------
-
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/0f09b81f-7055-4cc1-870c-e8c5b9e47d5f)
+
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Reservation-Related Microservices
 
@@ -162,18 +156,15 @@ We will be using the following legend in the below explanations unless specifica
 + Services will also generate appropriate events to track reservations for updates (cancellations/delays etc.).
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+Below flow diagrams explain the working of each microservice.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/ea91cd1c-ae03-42cf-b941-ef5b72cec64e)
 
----------------------------------------------------------------------------------------------------------------------------------------------
-
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/104b8176-66fe-4f8e-a7c2-061a2710420f)
-
----------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/86c0adfd-98ba-4d95-84ff-cd091ee437a3)
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Share Trip-Related Microservices
 
@@ -183,18 +174,16 @@ We will be using the following legend in the below explanations unless specifica
 + When Opened these links will bypass Authentication, allowing users to easily access it on social media and email.
 + We will also allow users to track the shared trip links and delete them if required.
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
----------------------------------------------------------------------------------------------------------------------------------------------
+
+Below flow diagrams explain the working of each microservice.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/b4fe7421-d70e-49d0-896b-ce7650dfc6ec)
 
----------------------------------------------------------------------------------------------------------------------------------------------
-
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/81df2b49-714b-4cee-8d67-658032a74cfa)
-
----------------------------------------------------------------------------------------------------------------------------------------------
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/b6c0e906-84ae-469c-805b-d576e32c518b)
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Email Related Microservices
 
@@ -206,13 +195,11 @@ We will be using the following legend in the below explanations unless specifica
 + Emails Data will be a NoSQL DB to store the contents of the email polled.
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+Below flow diagrams explain the working of each microservice.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/bf3b1f82-9419-4a4e-becd-37cbf85cb0b0)
 
----------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/874bafb0-2bb3-41ed-a280-1aded0179ae6)
-
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -225,7 +212,7 @@ We will be using the following legend in the below explanations unless specifica
 + Mark Reservations as Completed if they are no longer required to be tracked
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+Below flow diagrams explain the working of each microservice.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/89dc1c86-18a9-4444-9f9b-f4b376b66287)
 
@@ -240,14 +227,13 @@ We will be using the following legend in the below explanations unless specifica
 + Configuration database will hold details on the relevant URLs, credentials and interfaces which need to be used for communication.
 + Polling and all additions to Event Queue along with Events to track Analytics are asynchronous actions.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+Below flow diagrams explain the working of each microservice.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/741d1c69-6583-4447-b737-cd035d01b34b)
 
----------------------------------------------------------------------------------------------------------------------------------------------
-
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/4b55a44d-d14b-46a8-a314-361e1716ffdf)
 
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Analytics-Related Microservices
 
@@ -256,7 +242,7 @@ We will be using the following legend in the below explanations unless specifica
 + Analytics DB will hold all details about user actions, changes in reservation details, user preferences etc.
 + The service will poll the queue and add events along with attributes.
 
----------------------------------------------------------------------------------------------------------------------------------------------
+Below flow diagrams explain the working of each microservice.
 
 ![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/283dca5c-570c-4473-82ca-1834fcb71cd5)
 
@@ -274,8 +260,6 @@ We will be using the following legend in the below explanations unless specifica
   5. Trip/Reservation completion based on the end date and removal of appropriate events from queues to optimize performance
   6. ETL Job to import and export data between RDBMS and Data warehouse
      
-![image](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/144985834/a3f126ca-2248-419a-a467-fe128fc25e26)
-
 ## Strategy
 
 + A phased approach is suggested for Polling User email inboxes, since it is a startup it is recommended to build brand trust first and then roll out this functionality.
@@ -284,24 +268,20 @@ We will be using the following legend in the below explanations unless specifica
 
 ## Architectural Decision Records
 
-## ADR 1: Backend for frontend
+### ADR 1: Backend for frontend
 
-## Status  
+**Status**
 Proposed
 
-## Context 
+**Context**
 The Backend for Frontend (BFF) pattern is a design approach that involves creating a separate backend specifically tailored to the needs of a frontend application.
-
-
 It is needed to address some of the challenges and complexities that arise in modern web and mobile application development.
-
-
 Backend for Frontend pattern helps to address the complexities and specific requirements of frontend applications, providing a dedicated backend layer that enhances performance, security, and developer productivity.
 
-## Decision   
+**Decision**   
 We will use BFF for the incoming request from App and Web interfaces in Road Warrior
 
-## Consequences  
+**Consequences**  
 Postitive:
 + Gives us flexibilty to address tailored needs of web and app clients
 + Gives better routing and security controls
@@ -310,30 +290,21 @@ Postitive:
 Negative:  
 + Can be and additional hop with nominal addition in latency
 
+### ADR 2: Microservices Architecture
 
-
-
-# ADR 2: Microservices Architecture
-
-## Status  
+**Status**
 Proposed
 
-## Context 
+**Context**
 Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services.
-
-
 With various services being used in the applications this design approach help easily scale the required services.
-
-
 Since the application can be broken down into individual automic units building services over a microservice architecture will ease a lot of challenges for Road Warrior.
-
-
 As Road warrior has very minimal tollrence to faults and downtimes
 
-## Decision   
+**Decision**   
 We will use the Microservices architecture for services in Road Warrior
 
-## Consequences  
+**Consequences**  
 Postitive:
 + Gives us flexibilty to scale each of the service
 + Independent development of services can be done 
@@ -346,12 +317,12 @@ Negative:
 
 
 
-# ADR 3: Event Driven Architecture (EDA)
+### ADR 3: Event Driven Architecture (EDA)
 
-## Status  
+**Status**
 Proposed
 
-## Context 
+**Context**
 Event-Driven Architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
 
 
@@ -363,10 +334,10 @@ This deseign pattern can help take decnetralized and autonomic decisions.
 
 Async capabilities with EDA is going to very useful for faster processing and updates.
 
-## Decision   
+**Decision**   
 We will use the Event-Driven Architecture for event based actions in Road Warrior
 
-## Consequences  
+**Consequences**  
 Postitive:
 + Asynchronous  capability with EDA can help process things faster without resource locking
 + Components can process events independently and in parallel, which allows for horizontal scaling by adding more instances of event processors
@@ -378,12 +349,12 @@ Negative:
 
 
 
-# ADR 4: Usage of Config Database
+### ADR 4: Usage of Config Database
 
-## Status  
+**Status**
 Proposed
 
-## Context 
+**Context**
 Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
 
 
@@ -395,10 +366,10 @@ As part of the architecture to make it International Standards complient we want
 
 Configurational attribute being in Config database will simplify these controls and process
 
-## Decision   
+**Decision**   
 We will use Config Database for Interface, Email configs , Internation compleience standards in Road Warrior
 
-## Consequences  
+**Consequences**  
 Postitive:
 + Easy management integration interfaces. Any modifications can be eaily achived
 + Complience to intenational standards can be easily achived by modification of configurations alone
@@ -406,45 +377,12 @@ Postitive:
 Negative:  
 + Hit on performance as few services will have additional with config database
 
+### ADR 5: Caching Technology in DBMS
 
-
-# ADR 4: Usage of Config Database
-
-## Status  
+**Status**
 Proposed
 
-## Context 
-Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
-
-
-This will help bring flexibility in management without any alternations to service.
-
-
-As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
-
-
-Configurational attribute being in Config database will simplify these controls and process
-
-## Decision   
-We will use Config Database for Interface, Email configs , Internation compleience standards in Road Warrior
-
-## Consequences  
-Postitive:
-+ Easy management integration interfaces. Any modifications can be eaily achived
-+ Complience to intenational standards can be easily achived by modification of configurations alone
-
-Negative:  
-+ Hit on performance as few services will have additional with config database
-
-
-
-
-# ADR 5: Caching Technology in DBMS
-
-## Status  
-Proposed
-
-## Context 
+**Context**
 Use of caching technology in DBMS is another factor that we are considering for design.
 
 
@@ -453,10 +391,10 @@ This component is considered as the performnace of the application has to be opt
 
 Caching can help improve the response rate and avoid significant load on Database keeping its resources utlizations in control
 
-## Decision   
+**Decision**   
 We will use caching techniques for databases in Road Warrior
 
-## Consequences  
+**Consequences**  
 Postitive:
 + Controlled System resource utilizations
 + Improved Response rate of database operations
@@ -466,21 +404,21 @@ Negative:
 + careful tuning of caching would be required for optimal utilization
 
 
-# ADR 6: Batch Processing for non time sensitive process and Heavy compute tasks
+### ADR 6: Batch Processing for non time sensitive process and Heavy compute tasks
 
-## Status  
+**Status**
 Proposed
 
-## Context 
+**Context**
 For the heavy compute analytics tasks or non time senstives updates on the system batch jobs are an ideal choice. It can run in isolation to the regular transactions.
 
 
 It can also be completely decoupled from the transactions systems and bring in the relevant data whenever required.
 
-## Decision   
+**Decision**   
 We will using a series of batch processing for  non time sensitive process and Heavy compute tasks  in Road Warrior
 
-## Consequences  
+**Consequences**  
 Postitive:
 + Batch jobs is ideal for processing large volumes of data
 + Can help avoid transaction load on system by decoupling from regular transactions
