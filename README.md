@@ -270,7 +270,7 @@ Below flow diagrams explain the working of each microservice.
 
 ![Analytics drawio](https://github.com/manjuprasadshettyn/actian_katas_2023/assets/16699423/4fe33065-53e6-4297-b937-5a40cefe6ca3)
 
-+ Analytics DB will hold all details about user actions, changes in reservation details, user preferences etc.
++ Analytics DB will hold all details about user actions, changes in reservation details, user preferences, etc.
 + The service will poll the queue and add events along with attributes.
 
 Below flow diagrams explain the working of each microservice.
@@ -294,7 +294,7 @@ Below flow diagrams explain the working of each microservice.
 ## Strategy
 
 + A phased approach is suggested for Polling User email inboxes, since it is a startup it is recommended to build brand trust first and then roll out this functionality.
-+ Use of Distributed Deployment approach, having different setups serving similar countries/regions. Controlling deployments and the compliance of the local law (GDPR, India Personal Data Protection Act etc.) through Configuration Databse will help expand in a phased approach with minimal re-work.
++ Use of Distributed Deployment approach, having different setups serving similar countries/regions. Controlling deployments and compliance of the local law (GDPR, India Personal Data Protection Act, etc.) through the Configuration Database will help expand in a phased approach with minimal re-work.
 + Effective use of event queue to improve performance: Poll agency/email for updates on only Active Reservations. For Ex: If there are no active reservations polling of user inbox can be changed from every 2 mins to 10 mins.
 
 ## Architectural Decision Records
@@ -305,21 +305,21 @@ Below flow diagrams explain the working of each microservice.
 Proposed
 
 **Context**
-The Backend for Frontend (BFF) pattern is a design approach that involves creating a separate backend specifically tailored to the needs of a frontend application.
+The Backend for Frontend (BFF) pattern is a design approach that involves creating a separate backend specifically tailored to the needs of a front-end application.
 It is needed to address some of the challenges and complexities that arise in modern web and mobile application development.
 Backend for Frontend pattern helps to address the complexities and specific requirements of frontend applications, providing a dedicated backend layer that enhances performance, security, and developer productivity.
 
 **Decision**   
-We will use BFF for the incoming request from App and Web interfaces in Road Warrior
+We will use BFF for the incoming requests from App and Web interfaces in Road Warrior
 
 **Consequences**  
-Postitive:
-+ Gives us flexibilty to address tailored needs of web and app clients
+Positive:
++ Gives us flexibility to address tailored needs of web and app clients
 + Gives better routing and security controls
 + Helps Isolate features like share trips for better authentication and authorization
 
 Negative:  
-+ Can be and additional hop with nominal addition in latency
++ Can be an additional hop with nominal addition in latency
 
 ### ADR 2: Microservices Architecture
 
@@ -328,51 +328,51 @@ Proposed
 
 **Context**
 Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services.
-With various services being used in the applications this design approach help easily scale the required services.
+With various services being used in the applications this design approach helps easily scale the required services.
 Since the application can be broken down into individual automic units building services over a microservice architecture will ease a lot of challenges for Road Warrior.
-As Road warrior has very minimal tollrence to faults and downtimes
+As Road Warrior has very minimal tolerance to faults and downtimes
 
 **Decision**   
 We will use the Microservices architecture for services in Road Warrior
 
 **Consequences**  
-Postitive:
-+ Gives us flexibilty to scale each of the service
+Positive:
++ Gives us flexibility to scale each of the services
 + Independent development of services can be done 
-+ Clear segregations of domain and its controls
++ Clear segregations of the domain and its controls
 + Addition of a service to a domain will be easy
 
 Negative:  
 + It requires careful design, effective communication between services, and proper management of distributed systems
-+ Code Duplicatation is a potential possibility
++ Code Duplication is a potential possibility
 
 
 
-### ADR 3: Event Driven Architecture (EDA)
+### ADR 3: Event-Driven Architecture (EDA)
 
 **Status**
 Proposed
 
 **Context**
-Event-Driven Architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
+Event-driven architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
 
 
-Road Warrior has various use cases which are event driven in nature. These event driven actions can we well managed with the state machine for eventual inconsistency.
+Road Warrior has various use cases which are event-driven in nature. These event-driven actions can be well managed with the state machine for eventual inconsistency.
 
 
-This deseign pattern can help take decnetralized and autonomic decisions. 
+This design pattern can help take decentralized and autonomic decisions. 
 
 
-Async capabilities with EDA is going to very useful for faster processing and updates.
+Async capabilities with EDA are going to be very useful for faster processing and updates.
 
 **Decision**   
-We will use the Event-Driven Architecture for event based actions in Road Warrior
+We will use the Event-Driven Architecture for event-based actions in Road Warrior
 
 **Consequences**  
-Postitive:
-+ Asynchronous  capability with EDA can help process things faster without resource locking
+Positive:
++ Asynchronous  capability with EDA can help process things faster without resource-locking
 + Components can process events independently and in parallel, which allows for horizontal scaling by adding more instances of event processors
-+ Additional intergaration is much easier with EDA
++ Additional integration is much easier with EDA
 + Integrating disparate systems and services is another value add of EDA
 
 Negative:  
@@ -386,27 +386,27 @@ Negative:
 Proposed
 
 **Context**
-Isolation of Interface integration details, Email configurations and permissions , International complience standards from the code to a database is a differentiating factor in our design approach.
+Isolation of Interface integration details, Email configurations and permissions, and International compliance standards from the code to a database is a differentiating factor in our design approach.
 
 
 This will help bring flexibility in management without any alternations to service.
 
 
-As part of the architecture to make it International Standards complient we want to keep Road Warrior solution flexible to various configurational aspects.
+As part of the architecture to make it International Standards compliant we want to keep the Road Warrior solution flexible to various configurational aspects.
 
 
-Configurational attribute being in Config database will simplify these controls and process
+Configurational attributes being in the Config database will simplify these controls and process
 
 **Decision**   
-We will use Config Database for Interface, Email configs , Internation compleience standards in Road Warrior
+We will use Config Database for Interface, Email configs, International compliance standards in Road Warrior
 
 **Consequences**  
-Postitive:
-+ Easy management integration interfaces. Any modifications can be eaily achived
-+ Complience to intenational standards can be easily achived by modification of configurations alone
+Positive:
++ Easy management integration interfaces. Any modifications can be easily achieved
++ Compliance with international standards can be easily achieved by modification of configurations alone
 
 Negative:  
-+ Hit on performance as few services will have additional with config database
++ Hit on performance as few services will have additional checks with config database
 
 ### ADR 5: Caching Technology in DBMS
 
@@ -414,46 +414,46 @@ Negative:
 Proposed
 
 **Context**
-Use of caching technology in DBMS is another factor that we are considering for design.
+The use of caching technology in DBMS is another factor that we are considering for design.
 
 
-This component is considered as the performnace of the application has to be optimal with over 2M active users.
+This component is considered as the performance of the application has to be optimal with over 2M active users.
 
 
-Caching can help improve the response rate and avoid significant load on Database keeping its resources utlizations in control
+Caching can help improve the response rate and avoid significant load on the Database keeping its resource utilizations in control
 
 **Decision**   
 We will use caching techniques for databases in Road Warrior
 
 **Consequences**  
-Postitive:
-+ Controlled System resource utilizations
+Positive:
++ Controlled System resource utilization
 + Improved Response rate of database operations
 
 Negative:  
-+ Higher cost of caching from intial resource provisioning
-+ careful tuning of caching would be required for optimal utilization
++ Higher cost of caching from initial resource provisioning
++ Careful tuning of caching would be required for optimal utilization
 
 
-### ADR 6: Batch Processing for non time sensitive process and Heavy compute tasks
+### ADR 6: Batch Processing for non-time-sensitive process and Heavy computing tasks
 
 **Status**
 Proposed
 
 **Context**
-For the heavy compute analytics tasks or non time senstives updates on the system batch jobs are an ideal choice. It can run in isolation to the regular transactions.
+For heavy compute analytics tasks or non-time sensitive updates on the system batch jobs are an ideal choice. It can run in isolation from the regular transactions.
 
 
-It can also be completely decoupled from the transactions systems and bring in the relevant data whenever required.
+It can also be completely decoupled from the transaction systems and bring in the relevant data whenever required.
 
 **Decision**   
-We will using a series of batch processing for  non time sensitive process and Heavy compute tasks  in Road Warrior
+We will use a series of batch processing for  non time-sensitive process and Heavy computing tasks  in Road Warrior
 
 **Consequences**  
-Postitive:
-+ Batch jobs is ideal for processing large volumes of data
-+ Can help avoid transaction load on system by decoupling from regular transactions
+Positive:
++ Batch jobs are ideal for processing large volumes of data
++ Can help avoid transaction load on the system by decoupling from regular transactions
 
 Negative:  
-+ Updates might not be near real time
-+ Additional controls for fault tolerence needed
++ Updates might not be near real-time
++ Additional controls for fault tolerance needed
