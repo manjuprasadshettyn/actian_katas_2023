@@ -304,15 +304,12 @@ Below flow diagrams explain the working of each microservice.
 
 ### ADR 01: Backend for Frontend
 
-**Status**
-Proposed
+**Status** : Proposed
 
-**Context**
-Our Product has to serve all of the content to the client over services and considering that we have to cater to different types of clients (web and Mobile App), there is a need for a layer which can effectively deliver content to the client taking advantage of the client specific features and at the same time working around the limitations of the client.
+**Context**: Our Product has to serve all of the content to the client over services and considering that we have to cater to different types of clients (web and Mobile App), there is a need for a layer which can effectively deliver content to the client taking advantage of the client specific features and at the same time working around the limitations of the client.
 Also when integrating multiple services on the client it is always a good practice to isolate the core domain-specific functionality from generic tasks like authorization, routing, security etc.
 
-**Decision**
-We will use the Backend For Framework pattern for the incoming requests from App and Web interfaces in Road Warrior
+**Decision**: We will use the Backend For Framework pattern for the incoming requests from App and Web interfaces in Road Warrior
 
 **Consequences**  
 Positive:
@@ -326,17 +323,14 @@ Negative:
 
 ### ADR 02: Synchronous Microservices
 
-**Status**
-Proposed
+**Status**: Proposed
 
-**Context**
-Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services. 
+**Context**: Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services. 
 Services hosting web and mobile experiences are by and large powered by request-response designs and Integrations with external third-party solutions almost always use a synchronous mechanism and 
 generally provide a flexible, language-agnostic communication mechanism over HTTP.
 The use of Synchronous microservices in the Road Warrior system for Client and external integrations will help design the code in a modular way keeping it agile and at the same time easy to scale with high availability. 
 
-**Decision**   
-We will use the Synchronous Microservices architecture for services in Road Warrior
+**Decision**: We will use the Synchronous Microservices architecture for services in Road Warrior
 
 **Consequences**  
 Positive:
@@ -351,19 +345,16 @@ Negative:
 
 ### ADR 03: Event-Driven Microservices
 
-**Status**
-Proposed
+**Status**: Proposed
 
-**Context**
-Event-driven architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
+**Context**: Event-driven architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
 This design pattern can help make decentralized and autonomic decisions and will be very useful for faster processing and updates.
 Event-driven microservices applications are tasked with fulfilling the requirements and emitting any of their own necessary events to other downstream consumers. This helps build a flexible and scalable system where business logic is 
 defined as granular, loosely coupled and highly testable services.
 
 Road Warrior has various use cases like tracking events for analytics, polling email/interfaces for updates etc. which can be event-driven allowing us to process millions of these tasks in a performance-efficient way.
 
-**Decision**   
-We will use the Event-Driven Microservices Architecture for event-based actions in Road Warrior.
+**Decision**: We will use the Event-Driven Microservices Architecture for event-based actions in Road Warrior.
 
 **Consequences**  
 Positive:
@@ -378,20 +369,16 @@ Negative:
 
 ### ADR 04: Configuration Database
 
-**Status**
-Proposed
+**Status**: Proposed
 
-**Context**
-Isolation of configuration-related data and data that can help control the business/domain logic to some extent to a central place like a Database can help in the maintainability, deployability and agility of the system in the long run.
+**Context**: Isolation of configuration-related data and data that can help control the business/domain logic to some extent to a central place like a Database can help in the maintainability, deployability and agility of the system in the long run.
 These details otherwise generally available in service layer require frequent development efforts/deployment efforts to accommodate changes.
 Considering the Travel Industry and how heavily its components are regulated by the government, it will be a good practice to build a system which can quickly respond to changes and work internationally.
-
 In the Road Warrior System, the isolation of Interface integration details, Email configurations and filters, and International compliance standards from the code to a database is a differentiating factor in our design approach.
 The International Standards compliance will be controlled through a database ensuring that it's easy to deploy and operate in different countries and the logic required for that country will be applied from the database.
 This will also bring flexibility in maintenance without any development efforts on services.
 
-**Decision**   
-We will use the Configuration Database for Interface, Email configs, and International compliance controls in Road Warrior.
+**Decision**: We will use the Configuration Database for Interface, Email configs, and International compliance controls in Road Warrior.
 
 **Consequences**  
 Positive:
@@ -399,20 +386,16 @@ Positive:
 + Compliance with international standards can be easily achieved by modification of configurations alone
 
 Negative:  
-+ Hit on performance as few services will have additional checks with config database
++ Impact on performance as few services will have additional checks with configuration database
 
 ### ADR 05: Caching to Improve Responsiveness
 
-**Status**
-Proposed
+**Status**: Proposed
 
-**Context**
-The use of caching technology in DBMS is another factor that we are considering for design.
-This component is considered as the performance of the application has to be optimal with over 2 million active users.
+**Context**: The use of caching technology in DBMS is another factor that we are considering for design. This component is considered as the performance of the application has to be optimal with over 2 million active users.
 Caching can help improve the response rate and avoid significant load on the Database keeping its resource utilizations in control
 
-**Decision**   
-We will use caching techniques of the databases in Road Warrior
+**Decision**: We will be use caching techniques of the databases in Road Warrior
 
 **Consequences**  
 Positive:
@@ -426,15 +409,12 @@ Negative:
 
 ### ADR 06: Batch Processing
 
-**Status**
-Proposed
+**Status**: Proposed
 
-**Context**
-For heavy compute analytics tasks and non-time-sensitive updates on the system, batch jobs are an ideal choice. It can run in isolation from the regular transactions while being completely decoupled from the transaction systems 
+**Context**: For heavy compute analytics tasks and non-time-sensitive updates on the system, batch jobs are an ideal choice. It can run in isolation from the regular transactions while being completely decoupled from the transaction systems 
 and bring in the relevant data/actions whenever required.
 
-**Decision**   
-We will use a series of batch processing for non-time-sensitive processes and Heavy computing tasks in Road Warrior.
+**Decision**: We will use a series of batch processing for non-time-sensitive processes and Heavy computing tasks in Road Warrior.
 
 **Consequences**  
 Positive:
