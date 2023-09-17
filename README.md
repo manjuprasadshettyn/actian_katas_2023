@@ -293,8 +293,12 @@ Below flow diagrams explain the working of each microservice.
 ## Strategy
 
 + A phased approach is suggested for Polling User email inboxes, since it is a startup it is recommended to build brand trust first and then roll out this functionality.
-+ Use of Distributed Deployment approach, having different setups serving similar countries/regions. Controlling deployments and compliance of the local law (GDPR, India Personal Data Protection Act, etc.) through the Configuration Database will help expand in a phased approach with minimal re-work.
-+ Effective use of event queue to improve performance: Poll agency/email for updates on only Active Reservations. For Ex: If there are no active reservations polling of user inbox can be changed from every 2 mins to 10 mins.
++ Use of Distributed Deployment approach, having different setups serving similar countries/regions. Controlling deployments and compliance with the local law (GDPR, India Personal Data Protection Act, etc.) through the Configuration Database will help expand in a phased approach with minimal re-work.
++ Effective use of event queue to improve performance:
+  + Poll agency/email for updates on only Active Reservations.
+  + Poll Road Warrior Inbox every 2 minutes: This will help users quickly add/modify trips by simply forwarding an email.
+  + Poll User Inbox every 2 minutes if there are active reservations for a User. If there are no active reservations polling of user inbox can be changed from every 2 mins to 10 mins.
+  + Poll agency Interface every 2 minutes if there are active reservations for a User. If no active Reservations then this polling can be paused. 
 
 ## Architectural Decision Records
 
@@ -304,20 +308,21 @@ Below flow diagrams explain the working of each microservice.
 Proposed
 
 **Context**
-Our Product has to serve all of the content to the client over services and considering that we have to cater to different types of clients (web and Mobile App), there is a need for a layer which can effectively deliver content to the client taking advantage of the client specific features and at same time working around the limitations of the client.
+Our Product has to serve all of the content to the client over services and considering that we have to cater to different types of clients (web and Mobile App), there is a need for a layer which can effectively deliver content to the client taking advantage of the client specific features and at the same time working around the limitations of the client.
 Also when integrating multiple services on the client it is always a good practice to isolate the core domain-specific functionality from generic tasks like authorization, routing, security etc.
 
-**Decision**   
+**Decision**
 We will use the Backend For Framework pattern for the incoming requests from App and Web interfaces in Road Warrior
 
 **Consequences**  
 Positive:
-+ Gives us flexibility to address tailored needs of web and app clients
++ Gives us the flexibility to address tailored needs of web and app clients
 + Gives better routing and security controls
 + Helps Isolate features like share trips for better authentication and authorization
 
 Negative:  
 + Can be an additional hop with nominal addition in latency
++ Overhead of developing and maintaining few additional services
 
 ### ADR 02: Synchronous Microservices
 
@@ -325,25 +330,23 @@ Negative:
 Proposed
 
 **Context**
-Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services.
-With various services being used in the applications this design approach helps easily scale the required services.
-Since the application can be broken down into individual automic units building services over a microservice architecture will ease a lot of challenges for Road Warrior.
-As Road Warrior has very minimal tolerance to faults and downtimes
+Microservices architecture is a design approach for building applications as a collection of small, loosely coupled, and independently deployable services. 
+Services hosting web and mobile experiences are by and large powered by request-response designs and Integrations with external third-party solutions almost always use a synchronous mechanism and 
+generally provide a flexible, language-agnostic communication mechanism over HTTP.
+The use of Synchronous microservices in the Road Warrior system for Client and external integrations will help design the code in a modular way keeping it agile and at the same time easy to scale with high availability. 
 
 **Decision**   
-We will use the Microservices architecture for services in Road Warrior
+We will use the Synchronous Microservices architecture for services in Road Warrior
 
 **Consequences**  
 Positive:
-+ Gives us flexibility to scale each of the services
-+ Independent development of services can be done 
-+ Clear segregations of the domain and its controls
-+ Addition of a service to a domain will be easy
++ Gives us the flexibility to scale each of the services
++ Gives us a roadmap to evolve of the system
++ Clear segregation of the domain and its controls
 
 Negative:  
 + It requires careful design, effective communication between services, and proper management of distributed systems
 + Code Duplication is a potential possibility
-
 
 
 ### ADR 03: Event-Driven Microservices
@@ -353,28 +356,23 @@ Proposed
 
 **Context**
 Event-driven architecture is a design pattern that focuses on the production, detection, consumption, and reaction to events that occur within a system or across multiple systems.
+This design pattern can help make decentralized and autonomic decisions and will be very useful for faster processing and updates.
+Event-driven microservices applications are tasked with fulfilling the requirements and emitting any of their own necessary events to other downstream consumers. This helps build a flexible and scalable system where business logic is 
+defined as granular, loosely coupled and highly testable services.
 
-
-Road Warrior has various use cases which are event-driven in nature. These event-driven actions can be well managed with the state machine for eventual inconsistency.
-
-
-This design pattern can help take decentralized and autonomic decisions. 
-
-
-Async capabilities with EDA are going to be very useful for faster processing and updates.
+Road Warrior has various use cases like tracking events for analytics, polling email/interfaces for updates etc. which can be event-driven allowing us to process millions of these tasks in a performance-efficient way.
 
 **Decision**   
-We will use the Event-Driven Architecture for event-based actions in Road Warrior
+We will use the Event-Driven Microservices Architecture for event-based actions in Road Warrior.
 
 **Consequences**  
 Positive:
 + Asynchronous  capability with EDA can help process things faster without resource-locking
 + Components can process events independently and in parallel, which allows for horizontal scaling by adding more instances of event processors
 + Additional integration is much easier with EDA
-+ Integrating disparate systems and services is another value add of EDA
 
 Negative:  
-+ Complexities related to event ordering, event schema evolution, eventual consistency, and managing the event flow across multiple services
++ Complexities related to event ordering, event schema evolution, eventual consistency, and managing the event flow across multiple services which can be avoided by using evolved queuing engines like kafka.
 
 
 
@@ -384,23 +382,20 @@ Negative:
 Proposed
 
 **Context**
-Isolation of Interface integration details, Email configurations and permissions, and International compliance standards from the code to a database is a differentiating factor in our design approach.
+Isolation of configuration-related data and data that can help control the business/domain logic to some extent to a central place like a Database can help in the maintainability, deployability and agility of the system in the long run.
+These details otherwise generally available in service layer require frequent development efforts/deployment efforts to accommodate changes.
+Considering the Travel Industry and how heavily its components are regulated by the government, it will be a good practice to build a system which can quickly respond to changes and work internationally.
 
-
-This will help bring flexibility in management without any alternations to service.
-
-
-As part of the architecture to make it International Standards compliant we want to keep the Road Warrior solution flexible to various configurational aspects.
-
-
-Configurational attributes being in the Config database will simplify these controls and process
+In the Road Warrior System, the isolation of Interface integration details, Email configurations and filters, and International compliance standards from the code to a database is a differentiating factor in our design approach.
+The International Standards compliance will be controlled through a database ensuring that it's easy to deploy and operate in different countries and the logic required for that country will be applied from the database.
+This will also bring flexibility in maintenance without any development efforts on services.
 
 **Decision**   
-We will use Config Database for Interface, Email configs, International compliance standards in Road Warrior
+We will use the Configuration Database for Interface, Email configs, and International compliance controls in Road Warrior.
 
 **Consequences**  
 Positive:
-+ Easy management integration interfaces. Any modifications can be easily achieved
++ Easy management of integration interfaces. Any modifications can be easily achieved
 + Compliance with international standards can be easily achieved by modification of configurations alone
 
 Negative:  
@@ -413,15 +408,11 @@ Proposed
 
 **Context**
 The use of caching technology in DBMS is another factor that we are considering for design.
-
-
-This component is considered as the performance of the application has to be optimal with over 2M active users.
-
-
+This component is considered as the performance of the application has to be optimal with over 2 million active users.
 Caching can help improve the response rate and avoid significant load on the Database keeping its resource utilizations in control
 
 **Decision**   
-We will use caching techniques for databases in Road Warrior
+We will use caching techniques of the databases in Road Warrior
 
 **Consequences**  
 Positive:
@@ -439,11 +430,11 @@ Negative:
 Proposed
 
 **Context**
-For heavy compute analytics tasks or non-time sensitive updates on the system batch jobs are an ideal choice. It can run in isolation from the regular transactions.
-It can also be completely decoupled from the transaction systems and bring in the relevant data whenever required.
+For heavy compute analytics tasks and non-time-sensitive updates on the system, batch jobs are an ideal choice. It can run in isolation from the regular transactions while being completely decoupled from the transaction systems 
+and bring in the relevant data/actions whenever required.
 
 **Decision**   
-We will use a series of batch processing for  non time-sensitive process and Heavy computing tasks  in Road Warrior
+We will use a series of batch processing for non-time-sensitive processes and Heavy computing tasks in Road Warrior.
 
 **Consequences**  
 Positive:
