@@ -371,12 +371,11 @@ Negative:
 
 **Status**: Proposed
 
-**Context**: Isolation of configuration-related data and data that can help control the business/domain logic to some extent to a central place like a Database can help in the maintainability, deployability and agility of the system in the long run.
-These details otherwise generally available in service layer require frequent development efforts/deployment efforts to accommodate changes.
+**Context**: Isolation of configuration-related data and data that can help control the business/domain logic to some extent to a central place like a Database can help in the maintainability, deployability and agility of the system in the long run. These details otherwise generally available in the service layer require frequent development efforts/deployment efforts to accommodate changes.
 Considering the Travel Industry and how heavily its components are regulated by the government, it will be a good practice to build a system which can quickly respond to changes and work internationally.
+
 In the Road Warrior System, the isolation of Interface integration details, Email configurations and filters, and International compliance standards from the code to a database is a differentiating factor in our design approach.
-The International Standards compliance will be controlled through a database ensuring that it's easy to deploy and operate in different countries and the logic required for that country will be applied from the database.
-This will also bring flexibility in maintenance without any development efforts on services.
+The International Standards compliance will be controlled through a database ensuring that it's easy to deploy and operate in different countries and the logic required for that country will be applied from the database. This will also bring flexibility in maintenance without any development efforts on services.
 
 **Decision**: We will use the Configuration Database for Interface, Email configs, and International compliance controls in Road Warrior.
 
@@ -386,7 +385,7 @@ Positive:
 + Compliance with international standards can be easily achieved by modification of configurations alone
 
 Negative:  
-+ Impact on performance as few services will have additional checks with configuration database
++ Impact on performance as few services will have additional checks with the configuration database
 
 ### ADR 05: Caching to Improve Responsiveness
 
